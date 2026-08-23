@@ -1,10 +1,13 @@
 from fastapi import FastAPI
+from app.routers import placement_profile
 
 app = FastAPI(
     title="CampusAI Placement Portal API",
     description="Backend API for the Placement & Career Portal module of CampusAI",
     version="0.1.0",
 )
+
+app.include_router(placement_profile.router)
 
 
 @app.get("/")
