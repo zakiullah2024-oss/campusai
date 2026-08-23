@@ -15,6 +15,8 @@ from app.database import Base
 from app.models.placement_profile import PlacementProfile
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
+from app.models.placement_company import PlacementCompany
+from app.models.placement_drive import PlacementDrive
 config = context.config
 config.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL"))
 
