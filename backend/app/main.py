@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.routers import placement_profile
+from app.routers import placement_drive
 
 app = FastAPI(
     title="CampusAI Placement Portal API",
@@ -8,6 +9,7 @@ app = FastAPI(
 )
 
 app.include_router(placement_profile.router)
+app.include_router(placement_drive.router)
 
 
 @app.get("/")
