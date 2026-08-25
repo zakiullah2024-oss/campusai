@@ -55,12 +55,16 @@ def create_drive(payload: PlacementDriveCreate, db: Session = Depends(get_db)):
     return drive
 
 
-@router.get("/drives", response_model=list[PlacementDriveOut])
-def list_drives(db: Session = Depends(get_db)):
-    return db.query(PlacementDrive).filter(
-        PlacementDrive.college_id == FAKE_COLLEGE_ID
-    ).all()
+from typing import Optional
 
+@router.get("/drives", response_model=list[PlacementDriveOut])
+def list_drives(status: Optional[str] = None, db: Session = Depends(get_db)):
+    query = db.query(PlacementDrive).filter(
+        PlacementDrive.college_id == FAKE_COLLEGE_ID
+    )
+    if status:
+        query = query.filter(PlacementDrive.status == status)
+    return query.all()
 
 @router.get("/drives/{drive_id}", response_model=PlacementDriveOut)
 def get_drive(drive_id: uuid.UUID, db: Session = Depends(get_db)):
