@@ -6,6 +6,8 @@ from pydantic import BaseModel, ConfigDict
 
 
 class PlacementProfileBase(BaseModel):
+    department: Optional[str] = None
+    graduation_year: Optional[int] = None
     linkedin_url: Optional[str] = None
     github_url: Optional[str] = None
     portfolio_url: Optional[str] = None

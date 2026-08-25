@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, String, Numeric, Boolean, DateTime, ForeignKey
+from sqlalchemy import Column, String, Numeric, Boolean, DateTime, ForeignKey, Integer
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
 
@@ -12,6 +12,8 @@ class PlacementProfile(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     student_id = Column(UUID(as_uuid=True), nullable=False, unique=True)
     college_id = Column(UUID(as_uuid=True), nullable=False)
+    department = Column(String, nullable=True)
+    graduation_year = Column(Integer, nullable=True)
 
     linkedin_url = Column(String, nullable=True)
     github_url = Column(String, nullable=True)
