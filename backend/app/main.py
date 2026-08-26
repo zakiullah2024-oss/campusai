@@ -12,6 +12,7 @@ app = FastAPI(
 app.include_router(placement_profile.router)
 app.include_router(placement_drive.router)
 app.include_router(placement_application.router)
+from app.routers import resume
 
 @app.get("/")
 def read_root():
@@ -21,3 +22,4 @@ def read_root():
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
+app.include_router(resume.router)
