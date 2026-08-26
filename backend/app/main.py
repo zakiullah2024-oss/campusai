@@ -2,11 +2,21 @@ from fastapi import FastAPI
 from app.routers import placement_profile
 from app.routers import placement_drive
 from app.routers import placement_application
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="CampusAI Placement Portal API",
     description="Backend API for the Placement & Career Portal module of CampusAI",
     version="0.1.0",
+)
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(placement_profile.router)
