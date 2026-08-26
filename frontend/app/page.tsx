@@ -16,3 +16,9 @@ export default function Home() {
     </main>
   );
 }
+<Link
+  href="/stories"
+  className="mt-4 text-blue-600 font-medium hover:underline"
+>
+  Read Placement Stories
+</Link>

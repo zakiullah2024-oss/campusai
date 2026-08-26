@@ -3,6 +3,7 @@ from app.routers import placement_profile
 from app.routers import placement_drive
 from app.routers import placement_application
 from fastapi.middleware.cors import CORSMiddleware
+from app.routers import placement_story
 
 app = FastAPI(
     title="CampusAI Placement Portal API",
@@ -33,3 +34,4 @@ def read_root():
 def health_check():
     return {"status": "ok"}
 app.include_router(resume.router)
+app.include_router(placement_story.router)

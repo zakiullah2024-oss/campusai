@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 from app.models.resume import Resume
 from app.models.placement_application import PlacementApplication
 from app.models.placement_application_status_history import PlacementApplicationStatusHistory
+from app.models.placement_story import PlacementStory
 
 sys.path.append(os.getcwd())
 load_dotenv()
