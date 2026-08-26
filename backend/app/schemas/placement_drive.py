@@ -42,3 +42,15 @@ class PlacementDriveOut(PlacementDriveBase):
     created_by: Optional[uuid.UUID] = None
     created_at: datetime
     updated_at: datetime
+
+
+class EligibilityCheckItem(BaseModel):
+    criterion: str
+    required: str
+    actual: str
+    passed: bool
+
+
+class EligibilityResult(BaseModel):
+    eligible: bool
+    checks: List[EligibilityCheckItem]
