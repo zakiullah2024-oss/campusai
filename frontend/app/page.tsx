@@ -2,24 +2,36 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-gray-50">
-      <h1 className="text-4xl font-bold text-gray-900 mb-4">CampusAI Placement Portal</h1>
-      <p className="text-gray-600 mb-8 max-w-md">
-        Browse placement drives, check your eligibility instantly, and apply - all in one place.
-      </p>
-      <div className="flex gap-4">
-        <Link
-          href="/drives"
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm"
-        >
-          View Placement Drives
-        </Link>
-        <Link
-          href="/stories"
-          className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium border border-blue-200 hover:bg-blue-50 transition"
-        >
-          Read Placement Stories
-        </Link>
+    <main className="relative min-h-screen overflow-hidden flex items-center justify-center px-4">
+      <div className="absolute w-96 h-96 rounded-full bg-orb-mint -top-20 -right-20" />
+      <div className="absolute w-96 h-96 rounded-full bg-orb-green -bottom-20 -left-20" />
+
+      <div className="relative z-10 max-w-lg text-center">
+        <div className="brand-gradient rounded-3xl p-10 shadow-lg">
+          <p className="text-sm font-medium text-[#A6F2D1] mb-2 uppercase tracking-wide">
+            CampusAI
+          </p>
+          <h1 className="text-3xl font-bold text-white mb-3">
+            Placement Portal
+          </h1>
+          <p className="text-white/80 text-sm mb-6">
+            Browse placement drives, check your eligibility instantly, and apply, all in one place.
+          </p>
+          <div className="flex gap-3 justify-center">
+            <Link
+              href="/drives"
+              className="bg-[#A6F2D1] text-[#0D1C17] px-5 py-2.5 rounded-xl font-semibold text-sm hover:brightness-95 transition"
+            >
+              View Drives
+            </Link>
+            <Link
+              href="/stories"
+              className="bg-white/10 text-white border border-white/25 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/15 transition"
+            >
+              Read Stories
+            </Link>
+          </div>
+        </div>
       </div>
     </main>
   );

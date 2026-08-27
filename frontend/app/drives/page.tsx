@@ -11,22 +11,24 @@ export default async function DrivesPage() {
   const stories = await getStories();
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <main className="relative min-h-screen overflow-hidden">
+      <div className="absolute w-96 h-96 rounded-full bg-orb-mint -top-20 -right-20 pointer-events-none" />
+      <div className="absolute w-96 h-96 rounded-full bg-orb-green -bottom-20 -left-20 pointer-events-none" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         <aside className="md:col-span-1">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Recently Placed</h2>
+          <h2 className="text-sm font-semibold text-[#4B5C55] uppercase tracking-wide mb-4">
+            Recently Placed
+          </h2>
           <div className="space-y-4">
             {stories.slice(0, 3).map((story: any) => (
-              <div
-                key={story.id}
-                className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm"
-              >
-                <p className="font-semibold text-gray-900">
+              <div key={story.id} className="glass-card rounded-2xl p-4">
+                <p className="font-semibold text-[#0D1C17]">
                   {story.role} at {story.company_name}
                 </p>
-                <p className="text-sm text-gray-500 mb-2">{story.package}</p>
+                <p className="text-sm text-[#4B5C55] mb-2">{story.package}</p>
                 {story.advice_for_juniors && (
-                  <p className="text-sm text-gray-600 italic line-clamp-3">
+                  <p className="text-sm text-[#4B5C55] italic line-clamp-3">
                     {story.advice_for_juniors}
                   </p>
                 )}
@@ -35,17 +37,17 @@ export default async function DrivesPage() {
           </div>
           <Link
             href="/stories"
-            className="inline-block mt-4 text-blue-600 text-sm font-medium hover:underline"
+            className="inline-block mt-4 text-[#065F46] text-sm font-semibold hover:underline"
           >
             View all stories
           </Link>
         </aside>
 
         <section className="md:col-span-2">
-          <h1 className="text-2xl font-bold text-gray-900 mb-6">Placement Drives</h1>
+          <h1 className="text-2xl font-bold text-[#0D1C17] mb-6">Placement Drives</h1>
 
           {drives.length === 0 && (
-            <p className="text-gray-500">No drives available yet.</p>
+            <p className="text-[#4B5C55]">No drives available yet.</p>
           )}
 
           <div className="space-y-4">
@@ -53,16 +55,16 @@ export default async function DrivesPage() {
               <Link
                 key={drive.id}
                 href={`/drives/${drive.id}`}
-                className="block bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition"
+                className="glass-card block rounded-2xl p-5 hover:shadow-md transition"
               >
                 <div className="flex justify-between items-center">
                   <div>
-                    <h2 className="text-lg font-semibold text-gray-900">{drive.role}</h2>
-                    <p className="text-sm text-gray-500">
+                    <h2 className="text-lg font-semibold text-[#0D1C17]">{drive.role}</h2>
+                    <p className="text-sm text-[#4B5C55]">
                       {drive.location} - {drive.job_type}
                     </p>
                   </div>
-                  <span className="text-xs uppercase font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700">
+                  <span className="text-xs uppercase font-semibold px-3 py-1 rounded-full bg-[#A6F2D1] bg-opacity-30 text-[#065F46]">
                     {drive.status}
                   </span>
                 </div>

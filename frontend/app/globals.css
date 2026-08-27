@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F4FAF7;
+  --foreground: #0D1C17;
 }
 
 @theme inline {
@@ -15,5 +15,27 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(9px);
+  border: 1px solid rgba(6, 95, 70, 0.14);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #065F46, #002116);
+}
+
+.bg-orb-mint {
+  background: #A6F2D1;
+  opacity: 0.18;
+  filter: blur(60px);
+}
+
+.bg-orb-green {
+  background: #065F46;
+  opacity: 0.12;
+  filter: blur(60px);
 }
