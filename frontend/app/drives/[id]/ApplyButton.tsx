@@ -35,7 +35,7 @@ export default function ApplyButton({
   }
 
   if (status === "done") {
-    return <p className="text-green-700 font-medium">{message}</p>;
+    return <p className="text-[#065F46] font-medium">{message}</p>;
   }
 
   return (
@@ -43,15 +43,15 @@ export default function ApplyButton({
       <button
         onClick={handleApply}
         disabled={!eligible || status === "loading"}
-        className={`px-4 py-2 rounded font-medium ${
+        className={`px-5 py-2.5 rounded-xl font-semibold text-sm transition ${
           eligible
-            ? "bg-blue-600 text-white hover:bg-blue-700"
-            : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            ? "bg-[#065F46] text-white hover:bg-[#054a37]"
+            : "bg-gray-200 text-gray-500 cursor-not-allowed"
         }`}
       >
         {status === "loading" ? "Applying..." : "Apply Now"}
       </button>
-      {message && <p className="text-red-600 text-sm mt-2">{message}</p>}
+      {message && <p className="text-[#B24A3B] text-sm mt-2">{message}</p>}
     </div>
   );
 }

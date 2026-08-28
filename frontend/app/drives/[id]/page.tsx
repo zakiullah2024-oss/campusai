@@ -9,18 +9,18 @@ export default async function DriveDetailPage({ params }: { params: Promise<{ id
   const resumes = await getMyResumes();
 
   return (
-    <main className="relative min-h-screen overflow-hidden py-10">
+    <main className="relative min-h-screen overflow-hidden bg-[#F4FAF7] text-[#0D1C17] py-10">
       <div className="absolute w-96 h-96 rounded-full bg-orb-mint -top-20 -right-20" />
       <div className="absolute w-96 h-96 rounded-full bg-orb-green -bottom-20 -left-20" />
 
-      <div className="relative z-10 max-w-2xl mx-auto glass-card p-8">
+      <div className="relative z-10 max-w-2xl mx-auto glass-card p-8 card-enter">
         <h1 className="text-2xl font-bold text-[#0D1C17]">{drive.role}</h1>
         <p className="text-[#4B5C55] mb-6">
           {company?.name} - {drive.location} - {drive.job_type}
         </p>
 
         <section className="mb-6">
-          <h2 className="text-sm font-semibold text-[#0D1C17] uppercase tracking-wide mb-2">
+          <h2 className="text-sm font-semibold text-[#4B5C55] uppercase tracking-[0.12em] mb-2">
             Job Description
           </h2>
           <p className="text-[#0D1C17]">{drive.job_description}</p>
@@ -32,7 +32,7 @@ export default async function DriveDetailPage({ params }: { params: Promise<{ id
         </section>
 
         <section className="mb-6">
-          <h2 className="text-sm font-semibold text-[#0D1C17] uppercase tracking-wide mb-2">
+          <h2 className="text-sm font-semibold text-[#4B5C55] uppercase tracking-[0.12em] mb-2">
             Eligibility
           </h2>
           <div
@@ -54,7 +54,7 @@ export default async function DriveDetailPage({ params }: { params: Promise<{ id
         </section>
 
         <section>
-          <h2 className="text-sm font-semibold text-[#0D1C17] uppercase tracking-wide mb-3">
+          <h2 className="text-sm font-semibold text-[#4B5C55] uppercase tracking-[0.12em] mb-3">
             Apply
           </h2>
           <ApplyButton
