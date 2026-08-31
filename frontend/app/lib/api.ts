@@ -46,6 +46,47 @@ export async function applyToDrive(driveId: string, resumeId: string) {
 }
 
 export async function getMyResumes() {
-  const res = await fetch(`${API_BASE}/placements/resumes`, { cache: "no-store" });
-  return res.json();
+  try {
+    const res = await fetch(`${API_BASE}/placements/resumes`, { cache: "no-store" });
+    if (!res.ok) return [];
+    return res.json();
+  } catch {
+    return [];
+  }
+}
+
+export async function getMyProfile() {
+  try {
+    const res = await fetch(`${API_BASE}/placements/profile`, { cache: "no-store" });
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
+  }
+}
+
+export async function updateMyProfile(payload: any) {
+  const res = await fetch(`${API_BASE}/placements/profile`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  const data = await res.json();
+  return { ok: res.ok, data };
+}
+
+export async function uploadResumeFile(resumeId: string, file: File) {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch(`${API_BASE}/placements/resumes/${resumeId}/upload`, {
+    method: "POST",
+    body: formData,
+  });
+  const data = await res.json();
+  return { ok: res.ok, data };
+}
+
+export function getResumeDownloadUrl(resumeId: string) {
+  return `${API_BASE}/placements/resumes/${resumeId}/download`;
 }

@@ -11,6 +11,7 @@ import {
   Zap,
   GraduationCap,
   Users,
+  User,
 } from "lucide-react";
 
 export default function Home() {
@@ -53,11 +54,19 @@ export default function Home() {
             </Link>
 
             <Link
+              href="/profile"
+              className="inline-flex items-center gap-2 bg-white text-[#091e17] border border-[#065f46]/20 px-5 py-3.5 rounded-2xl font-bold text-sm sm:text-base shadow-sm hover:bg-[#e6faf1] hover:border-[#065f46]/40 hover:scale-[1.02] transition-all"
+            >
+              <User className="w-5 h-5 text-[#059669]" />
+              <span>My Profile</span>
+            </Link>
+
+            <Link
               href="/stories"
               className="inline-flex items-center gap-2 bg-white text-[#091e17] border border-[#065f46]/20 px-5 py-3.5 rounded-2xl font-bold text-sm sm:text-base shadow-sm hover:bg-[#e6faf1] hover:border-[#065f46]/40 hover:scale-[1.02] transition-all"
             >
               <BookOpen className="w-5 h-5 text-[#059669]" />
-              <span>Read Senior Stories</span>
+              <span>Read Stories</span>
             </Link>
 
             <Link

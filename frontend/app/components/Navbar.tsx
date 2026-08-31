@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sparkles, Briefcase, BookOpen, Target, Compass } from "lucide-react";
+import { Sparkles, Briefcase, BookOpen, Target, Compass, User } from "lucide-react";
 
 export default function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
     { href: "/drives", label: "Placement Drives", icon: Briefcase },
+    { href: "/profile", label: "My Profile", icon: User },
     { href: "/stories", label: "Success Stories", icon: BookOpen },
     { href: "/preparation", label: "Prep Tracker", icon: Target },
   ];

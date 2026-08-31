@@ -16,6 +16,8 @@ class Resume(Base):
     template = Column(String, nullable=False, default="ats_minimal")
     is_default = Column(Boolean, nullable=False, default=False)
     career_summary = Column(String, nullable=True)
+    file_path = Column(String, nullable=True)
+    original_filename = Column(String, nullable=True)
 
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

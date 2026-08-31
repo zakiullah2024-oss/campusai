@@ -20,5 +20,7 @@ class ResumeOut(BaseModel):
     template: str
     is_default: bool
     career_summary: Optional[str] = None
+    file_path: Optional[str] = None
+    original_filename: Optional[str] = None
     created_at: datetime
     updated_at: datetime
